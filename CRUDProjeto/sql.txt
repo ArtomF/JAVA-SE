@@ -1,0 +1,10 @@
+create table projeto(
+    id bigint auto_increment,
+    nome varchar(150) not null,
+    descricao varchar(255),
+    prazo varchar(10) not null,
+    datainicio varchar(10) not null,
+    datatermino varchar(10),
+    status varchar(50) not null,
+    primary key(id)
+);
