@@ -1,0 +1,57 @@
+create database dbos;
+
+use dbos;
+
+create table usuario(
+    iduser bigint primary key auto_increment,
+    nome varchar(50) not null,
+    email varchar(100) not null,
+    login varchar(50) not null unique,
+    senha varchar(50) not null,
+    perfil varchar(20) not null
+);
+
+create table estado(
+    idestado int primary key auto_increment,
+    nome_estado varchar(100) not null,
+    sigla char(2) not null
+);
+
+create table cidade(
+    idcidade int primary key auto_increment,
+    nome_cidade varchar(150) not null,
+    idestado int not null,
+    foreign key(idestado) references estado(idestado)
+);
+
+create table bairro(
+    idbairro int primary key auto_increment,
+    nome_bairro varchar(150) not null,
+    idcidade int not null,
+    foreign key(idcidade) references cidade(idcidade)
+);
+
+create table endereco(
+    idend int primary key auto_increment,
+    rua varchar(150) not null, 
+    numero int not null,
+    complemento varchar(200),
+    idbairro int not null,
+    idcidade int not null,
+    idestado int not null,
+    foreign key(idbairro) references bairro(idbairro),
+    foreign key(idcidade) references cidade(idcidade),
+    foreign key(idestado) references estado(idestado)
+);
+
+create table cliente(
+    idcliente int primary key auto_increment,   
+    nome varchar(100) not null,
+    fone varchar(15) not null,
+    email varchar(100),
+    idend int not null,
+    foreign key(idend) references endereco(idend)
+);
+
+insert into usuario(iduser, nome, email, login, senha, perfil)
+values (null, 'root', 'root@rootemail.com', 'root', '123456', 'Admin');
