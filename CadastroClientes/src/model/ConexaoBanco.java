@@ -16,9 +16,9 @@ import java.sql.SQLException;
 public class ConexaoBanco {
     
     //Atributos statics para acessar o banco
-    private static final String URL = "jdbc:mysql://localhost:3306/dbos";
+    private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String USER = "root";
-    private static final String PASSWORD =  "Dessinha";
+    private static final String PASSWORD =  "";
     
     //Método para acessar o Driver de conexão com o banco de Dados
     public static Connection getConexao() throws SQLException{
