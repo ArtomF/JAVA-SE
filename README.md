@@ -1,3 +1,3 @@
 # java-se
 
-Projetos JAVA SE criados por mim.
+Some projects with Java SE.
